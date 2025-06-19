@@ -1,0 +1,2260 @@
+{
+	"info": {
+		"_postman_id": "c4eac3cd-29be-4c1f-82fd-d6cedef74cb0",
+		"name": "Challenge API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20796553"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users?email=mock_email1@gmail.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "mock_email1@gmail.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "No Authorization Header",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Add your name in the body\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-fL496ht0T5vgLstzYn7kEeW1S60\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 12:52:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing or invalid Authorization header\"\n}"
+						},
+						{
+							"name": "Successful retrieval",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?email=mock_email1@gmail.com",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "mock_email1@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-QpQsplDT2II3VN90m6IRhypRTds\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:45:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"firstName\": \"Alejandro\",\n        \"lastName\": \"Sosa\",\n        \"email\": \"mock_email1@gmail.com\"\n    },\n    \"message\": \"User found\"\n}"
+						},
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?email=mock_ema@gmail.com",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "mock_ema@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-hq/hT0ORGTkTfyRpVCZ/JB/r8Eg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:47:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?email=mock_email1@gmail.com",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "mock_email1@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"97-8D6upXVAdkZpgXF38pV/tJa+Djo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 16:06:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"0ce54418-d361-457d-bfcb-d866f83ae869\",\n        \"firstName\": \"Alejandro\",\n        \"lastName\": \"Sosa\",\n        \"email\": \"mock_email1@gmail.com\"\n    },\n    \"message\": \"User found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Alejandro\",\n    \"lastName\": \"Sosa\",\n    \"password\": \"124345678\",\n    \"email\": \"mock_email1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Alejandro\",\n    \"lastName\": \"Sosa\",\n    \"password\": \"124345678\",\n    \"email\": \"mock_email1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "120"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"78-KJVWhINykBTeSeyudxVHFhc6KA4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:09:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"firstName\": \"Alejandro\",\n        \"lastName\": \"Sosa\",\n        \"email\": \"mock_email1@gmail.com\"\n    },\n    \"message\": \"Registration successful\"\n}"
+						},
+						{
+							"name": "Invalid field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"password\": \"\",\n    \"email\": \"mock_email1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-sPPj7CdG6c7c6TK/o1aYk1N2kmY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:10:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\\"password\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "Duplicated User Registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Alejandro\",\n    \"lastName\": \"Sosa\",\n    \"password\": \"124345678\",\n    \"email\": \"mock_email1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-/9LxV2UgYzzC+g72O7R+rV1AGwY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unable to register user\"\n}"
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Alejandro\",\n    \"lastName\": \"Sosa\",\n    \"password\": \"124345678\",\n    \"email\": \"mock_email2@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-oKgpPAua3TFz38AZjGWw5xueJK0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 16:06:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"b70160c4-b052-4e61-b397-479b1fdb1fe1\",\n        \"firstName\": \"Alejandro\",\n        \"lastName\": \"Sosa\",\n        \"email\": \"mock_email2@gmail.com\"\n    },\n    \"message\": \"Registration successful\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"124345678\",\r\n    \"email\": \"mock_email1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"124345678\",\r\n    \"email\": \"mock_email1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"145-ukQpy/QeKqsE20FdOwiwha1VigM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:21:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBjZTU0NDE4LWQzNjEtNDU3ZC1iZmNiLWQ4NjZmODNhZTg2OSIsImZpcnN0TmFtZSI6IkFsZWphbmRybyIsImxhc3ROYW1lIjoiU29zYSIsImVtYWlsIjoibW9ja19lbWFpbDFAZ21haWwuY29tIiwiaWF0IjoxNzUwMzM5MzE0LCJleHAiOjE3NTAzNDI5MTR9.yffynLmWmI6nDngpbEeMCJamP_uxBaii0PX79-5CdtY\",\n    \"message\": \"Login successful\"\n}"
+						},
+						{
+							"name": "Invalid field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"\",\r\n    \"email\": \"mock_email1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-sPPj7CdG6c7c6TK/o1aYk1N2kmY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:26:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\\"password\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "Invalid credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"124345678\",\r\n    \"email\": \"asdasd@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-3YG4LRpklFolV4uVOnUIRm2hZA0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 13:28:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid email or password\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product 2\",\r\n    \"description\": \"Description for the new product 2\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-nASFNVf2tP0xIAFoi/HVpticzIk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:15:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\\"name\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "Successful creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1\",\r\n    \"description\": \"Description for the new product 1\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"128-q54PqVCLRTFEnnbOtVi0lBJQWtI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:38:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\",\n        \"name\": \"New Product 1\",\n        \"description\": \"Description for the new product 1\",\n        \"price\": 0.01,\n        \"stockAmount\": 0,\n        \"state\": \"active\",\n        \"createdAt\": \"2025-06-19T14:38:18.006Z\",\n        \"updatedAt\": \"2025-06-19T14:38:18.006Z\",\n        \"deletedAt\": null\n    },\n    \"message\": \"Product created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product 1\",\r\n    \"description\": \"Description for the new product 1\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"699ce31e-3182-4e7b-9cec-44cf16727723"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful retrieval",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1\",\r\n    \"description\": \"Description for the new product 1\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf16727723"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-XZU+aup7v9Rum0nbHt45ZL1nrCY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:17:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"699ce31e-3182-4e7b-9cec-44cf16727723\",\n        \"name\": \"New Product 1\",\n        \"description\": \"Description for the new product 1\",\n        \"price\": 0,\n        \"stockAmount\": 0,\n        \"state\": \"active\",\n        \"createdAt\": \"2025-06-19T14:16:12.855Z\",\n        \"updatedAt\": \"2025-06-19T14:16:12.855Z\",\n        \"deletedAt\": null\n    }\n}"
+						},
+						{
+							"name": "Product not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1\",\r\n    \"description\": \"Description for the new product 1\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf1672772",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf1672772"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-KH4ngqV3S/XmJmUEKpwjFfjZ2wg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:18:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Product not found\"\n}"
+						},
+						{
+							"name": "Successful retrieval",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1\",\r\n    \"description\": \"Description for the new product 1\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf16727723"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "310"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"136-1NExwvaT3MBIpE3ROm37yJrBTaY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:38:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"699ce31e-3182-4e7b-9cec-44cf16727723\",\n        \"name\": \"New Product 1 updated\",\n        \"description\": \"Description for the new product 1 updated\",\n        \"price\": 0.01,\n        \"stockAmount\": 0,\n        \"state\": \"active\",\n        \"createdAt\": \"2025-06-19T14:16:12.855Z\",\n        \"updatedAt\": \"2025-06-19T14:35:24.279Z\",\n        \"deletedAt\": null\n    },\n    \"message\": \"Product found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product 1 updated\",\r\n    \"description\": \"Description for the new product 1 updated\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products/64039542-10a1-4ca0-aee6-c9b3f14851c4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"64039542-10a1-4ca0-aee6-c9b3f14851c4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid field",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1 updated\",\r\n    \"description\": \"\",\r\n    \"price\": 0,\r\n    \"stockAmount\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf16727723"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-zj7n8Cz3014VTHRkzTyhrod1jDw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:33:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"\\\"description\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "Product updated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1 updated\",\r\n    \"description\": \"Description for the new product 1 updated\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf16727723"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"138-wVRsUaV8rE/yWvHfgm5YRqmbLxs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:39:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"699ce31e-3182-4e7b-9cec-44cf16727723\",\n        \"name\": \"New Product 1 updated\",\n        \"description\": \"Description for the new product 1 updated\",\n        \"price\": 0.01,\n        \"stockAmount\": 0,\n        \"state\": \"active\",\n        \"createdAt\": \"2025-06-19T14:16:12.855Z\",\n        \"updatedAt\": \"2025-06-19T14:39:31.349Z\",\n        \"deletedAt\": null\n    },\n    \"message\": \"Product updated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve available products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product 1 updated\",\r\n    \"description\": \"Description for the new product 1 updated\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/products/available",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"available"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Products found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New Product 1 updated\",\r\n    \"description\": \"Description for the new product 1 updated\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/products/available",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"available"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "340"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"154-GNSLpX0FR7TuBWcD6ppzj7RHGRE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 15:07:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\",\n            \"name\": \"New Product 1\",\n            \"description\": \"Description for the new product 1\",\n            \"price\": 0.01,\n            \"stockAmount\": 0,\n            \"state\": \"active\",\n            \"createdAt\": \"2025-06-19T14:38:18.006Z\",\n            \"updatedAt\": \"2025-06-19T14:38:18.006Z\",\n            \"deletedAt\": null\n        }\n    ],\n    \"page\": 1,\n    \"pageSize\": 10,\n    \"count\": 1,\n    \"total\": 1,\n    \"message\": \"Products found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf1672772",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"699ce31e-3182-4e7b-9cec-44cf1672772"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf1672772",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf1672772"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-E4JGy/n5c7jctoD+n/Eo3yf4Wkk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:51:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Product not found.\"\n}"
+						},
+						{
+							"name": "Successful deletion",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/699ce31e-3182-4e7b-9cec-44cf16727723",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"699ce31e-3182-4e7b-9cec-44cf16727723"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "307"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"133-h1dQYn80X+el4HtbpqwvKoYqPzA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 14:51:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"699ce31e-3182-4e7b-9cec-44cf16727723\",\n        \"name\": \"New Product 1 updated\",\n        \"description\": \"Description for the new product 1 updated\",\n        \"price\": 0.01,\n        \"stockAmount\": 0,\n        \"state\": \"deleted\",\n        \"createdAt\": \"2025-06-19T14:16:12.855Z\",\n        \"updatedAt\": \"2025-06-19T14:51:21.889Z\",\n        \"deletedAt\": \"2025-06-19T14:51:21.889Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Retrieve Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product 2\",\r\n    \"description\": \"Description for the new product 2\",\r\n    \"price\": 0.01,\r\n    \"stockAmount\": 0\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders/973b1825-2e6c-4785-9584-40e1298f7f46",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"973b1825-2e6c-4785-9584-40e1298f7f46"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Create Transaction Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"products\": [\n    { \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\", \"quantity\": 20 }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/transactions/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transactions",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create  Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"products\": [\n    { \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\", \"quantity\": 20 }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/transactions/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "408"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"198-b1HL7dBTyVokVwYMXgIGIu2HazE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 17:32:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"973b1825-2e6c-4785-9584-40e1298f7f46\",\n        \"userId\": \"0ce54418-d361-457d-bfcb-d866f83ae869\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2025-06-19T17:32:39.340Z\",\n        \"updatedAt\": \"2025-06-19T17:32:39.340Z\",\n        \"items\": [\n            {\n                \"id\": \"a08b79c8-2b6c-46fb-be30-0b10bfc4ed2b\",\n                \"orderId\": \"973b1825-2e6c-4785-9584-40e1298f7f46\",\n                \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\",\n                \"quantity\": 20\n            }\n        ]\n    },\n    \"message\": \"Order created successfully\"\n}"
+						},
+						{
+							"name": "Invalid field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"products\": [\n    { \"productId\": \"\", \"quantity\": 20 }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/transactions/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-MrdHbf+YweW8Ln3XTWG+fGUHsJs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 17:54:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"\\\"[0].productId\\\" is not allowed to be empty\"\n}"
+						},
+						{
+							"name": "Product doesn't exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"products\": [\n    { \"productId\": \"asdasd\", \"quantity\": 20 }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/transactions/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "507"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 17:55:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Error: Product with id asdasd does not exist.\n            <br> &nbsp; &nbsp;at TransactionService.createOrder (/home/as-main/Documents/challenges/avila-tek/backend/node-challenge/src/services/transaction-service.ts:33:27)\n            <br> &nbsp; &nbsp;at TransactionController.createOrder (/home/as-main/Documents/challenges/avila-tek/backend/node-challenge/src/application/transaction-controller.ts:50:27)\n        </pre>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "Update Transaction Order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": [\n    { \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\", \"newQuantity\": 0 }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/transactions/orders/973b1825-2e6c-4785-9584-40e1298f7f46/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transactions",
+								"orders",
+								"973b1825-2e6c-4785-9584-40e1298f7f46",
+								"items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update product quantity",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"updates\": [\n    { \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\", \"newQuantity\": 25 }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/973b1825-2e6c-4785-9584-40e1298f7f46/items",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"973b1825-2e6c-4785-9584-40e1298f7f46",
+										"items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "414"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19e-YlTjqm4nUL/J5h0Qc2H0uYk2HTk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 17:53:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"973b1825-2e6c-4785-9584-40e1298f7f46\",\n        \"userId\": \"0ce54418-d361-457d-bfcb-d866f83ae869\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2025-06-19T17:32:39.340Z\",\n        \"updatedAt\": \"2025-06-19T17:32:39.340Z\",\n        \"items\": [\n            {\n                \"id\": \"d1f0c57a-6750-4e82-9228-772e0ad4488d\",\n                \"orderId\": \"973b1825-2e6c-4785-9584-40e1298f7f46\",\n                \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\",\n                \"quantity\": 25\n            }\n        ]\n    },\n    \"message\": \"Order items updated successfully\"\n}"
+						},
+						{
+							"name": "Removes product from order",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"updates\": [\n    { \"productId\": \"64039542-10a1-4ca0-aee6-c9b3f14851c4\", \"newQuantity\": 0 }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/973b1825-2e6c-4785-9584-40e1298f7f46/items",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"973b1825-2e6c-4785-9584-40e1298f7f46",
+										"items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ff-GpY5tEYA8x+O0cc5sj9YBgS0wb4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 17:54:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"973b1825-2e6c-4785-9584-40e1298f7f46\",\n        \"userId\": \"0ce54418-d361-457d-bfcb-d866f83ae869\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2025-06-19T17:32:39.340Z\",\n        \"updatedAt\": \"2025-06-19T17:32:39.340Z\",\n        \"items\": []\n    },\n    \"message\": \"Order items updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transactions/orders/{{order_id}}/cancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transactions",
+								"orders",
+								"{{order_id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Succesful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/cancel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-HoxqjIA5AaC8Tt0TYJMnMD6ZKzg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:01:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"cancelled\",\n    \"message\": \"Order cancelled successfully\"\n}"
+						},
+						{
+							"name": "Repeated cancellation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/cancel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"cancel"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-P14uvON1EKI4wk7L41O235jFATg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:13:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only pending orders can be cancelled\"\n}"
+						},
+						{
+							"name": "Order not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/cancel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"cancel"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-fZXiF03Bm+R1qrG0y4tL2TyWwOk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:14:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Complete Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transactions/orders/{{order_id}}/complete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transactions",
+								"orders",
+								"{{order_id}}",
+								"complete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Succesful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/complete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"complete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-6LxbVm19o3fIOyXmgwgvGfn3YNc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:16:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"completed\",\n    \"message\": \"Order completed successfully\"\n}"
+						},
+						{
+							"name": "Repeated completion",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/complete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"complete"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-m7PjRj969ij+uYSPSYoyzLXzT9s\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:21:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only pending orders can be completed\"\n}"
+						},
+						{
+							"name": "Order not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/transactions/orders/{{order_id}}/complete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"transactions",
+										"orders",
+										"{{order_id}}",
+										"complete"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-fZXiF03Bm+R1qrG0y4tL2TyWwOk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 18:21:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order not found\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBjZTU0NDE4LWQzNjEtNDU3ZC1iZmNiLWQ4NjZmODNhZTg2OSIsImZpcnN0TmFtZSI6IkFsZWphbmRybyIsImxhc3ROYW1lIjoiU29zYSIsImVtYWlsIjoibW9ja19lbWFpbDFAZ21haWwuY29tIiwiaWF0IjoxNzUwMzU0MjIzLCJleHAiOjE3NTAzNTc4MjN9.yROdYZ7-7CLCKEEZa_MEJm0J7FlpqHbgQcKXdoE0lBU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
