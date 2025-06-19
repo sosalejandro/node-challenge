@@ -1,15 +1,16 @@
 import { IOrderService, IProductService } from '../domain';
-import { Order } from '../generated/prisma'
+import { $Enums, Order } from '../generated/prisma'
 import { logger } from '../shared/logger';
 
 export interface ITransactionService {
     createOrder(userId: string, products: { productId: string; quantity: number }[]): Promise<Order>;
     deleteOrder(orderId: string): Promise<void>;
-    cancelOrder(orderId: string): Promise<Order>;
+    cancelOrder(orderId: string): Promise<$Enums.OrderStatus>;
     updateOrderItems(
         orderId: string,
         updates: { productId: string; newQuantity: number }[]
     ): Promise<Order>;
+    completeOrder(orderId: string): Promise<$Enums.OrderStatus>;
     getOrder(orderId: string): Promise<Order | null>;
 }
 
@@ -53,16 +54,28 @@ export class TransactionService implements ITransactionService {
         }
     }
 
-    async cancelOrder(orderId: string): Promise<Order> {
+    async cancelOrder(orderId: string): Promise<$Enums.OrderStatus> {
         try {
             logger.info({ orderId }, 'Cancelling order');
-            await this.orderService.cancelOrder(orderId);
-            const order = await this.orderService.getOrderById(orderId);
-            if (!order) throw new Error('Order not found');
+            const orderStatus = await this.orderService.cancelOrder(orderId);
+            if (!orderStatus) throw new Error('Order not found');
             logger.info({ orderId }, 'Order cancelled successfully');
-            return order;
+            return orderStatus;
         } catch (error) {
             logger.error({ err: error }, 'Error in cancelOrder');
+            throw error;
+        }
+    }
+
+    async completeOrder(orderId: string): Promise<$Enums.OrderStatus> {
+        try {
+            logger.info({ orderId }, 'Completing order');
+            const orderStatus = await this.orderService.completeOrder(orderId);
+            if (!orderStatus) throw new Error('Order not found');
+            logger.info({ orderId }, 'Order completed successfully');
+            return orderStatus;
+        } catch (error) {
+            logger.error({ err: error }, 'Error in completeOrder');
             throw error;
         }
     }

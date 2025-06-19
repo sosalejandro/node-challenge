@@ -87,17 +87,14 @@ describe("TransactionService", () => {
     });
 
     describe("cancelOrder", () => {
-        it("should cancel an order and return it", async () => {
+        it("should cancel an order and return its status", async () => {
             orderService.cancelOrder.mockResolvedValue($Enums.OrderStatus.cancelled);
-            orderService.getOrderById.mockResolvedValue(mockOrder);
             const result = await transactionService.cancelOrder("order1");
             expect(orderService.cancelOrder).toHaveBeenCalledWith("order1");
-            expect(orderService.getOrderById).toHaveBeenCalledWith("order1");
-            expect(result).toBe(mockOrder);
+            expect(result).toBe($Enums.OrderStatus.cancelled);
         });
         it("should throw if order not found after cancel", async () => {
-            orderService.cancelOrder.mockResolvedValue($Enums.OrderStatus.cancelled);
-            orderService.getOrderById.mockResolvedValue(null);
+            orderService.cancelOrder.mockRejectedValue(new Error("Order not found"));
             await expect(transactionService.cancelOrder("order1")).rejects.toThrow("Order not found");
         });
         it("should log errors on failure", async () => {

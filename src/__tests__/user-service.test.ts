@@ -48,6 +48,7 @@ describe('UserService', () => {
         expect(passwordService.hashPassword).toHaveBeenCalledWith('password');
         expect(userRepository.createUser).toHaveBeenCalledWith('Test', 'User', 'test@example.com', 'hashed');
         const expected: RegistrationResultDto = {
+            id: mockUser.id,
             firstName: mockUser.firstName,
             lastName: mockUser.lastName,
             email: mockUser.email

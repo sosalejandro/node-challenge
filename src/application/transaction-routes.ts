@@ -28,6 +28,13 @@ router.post(
     transactionController.cancelOrder.bind(transactionController)
 );
 
+// Complete order (transactional)
+router.post(
+    '/orders/:orderId/complete',
+    authenticateJWT,
+    transactionController.completeOrder.bind(transactionController)
+);
+
 // Update order items (transactional)
 router.put(
     '/orders/:orderId/items',

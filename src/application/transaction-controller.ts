@@ -72,6 +72,12 @@ export class TransactionController {
             const order = await this.transactionService.cancelOrder(orderId);
             res.status(200).json({ data: order, message: 'Order cancelled successfully' });
         } catch (error) {
+            if (error && (error as any).message === 'Order not found.') {
+                return res.status(404).json({ message: 'Order not found' });
+            }
+            if (error && (error as any).message == 'Only pending orders can be cancelled.') {
+                return res.status(400).json({ message: 'Only pending orders can be cancelled' });
+            }
             logger.error({ err: error }, 'Error in cancelOrder controller');
             next(error);
         }
@@ -108,17 +114,23 @@ export class TransactionController {
         }
     }
 
-    // async completeOrder(req: Request, res: Response, next: NextFunction) {
-    //     try {
-    //         const { orderId } = req.params;
-    //         const order = await this.transactionService.completeOrder(orderId);
-    //         if (!order) {
-    //             return res.status(404).json({ message: 'Order not found' });
-    //         }
-    //         res.status(200).json({ data: order, message: 'Order completed successfully' });
-    //     } catch (error) {
-    //         logger.error({ err: error }, 'Error in completeOrder controller');
-    //         next(error);
-    //     }
-    // }
+    async completeOrder(req: Request, res: Response, next: NextFunction) {
+        try {
+            const { orderId } = req.params;
+            const order = await this.transactionService.completeOrder(orderId);
+            if (!order) {
+                return res.status(404).json({ message: 'Order not found' });
+            }
+            res.status(200).json({ data: order, message: 'Order completed successfully' });
+        } catch (error) {
+            if (error && (error as any).message === 'Order not found.') {
+                return res.status(404).json({ message: 'Order not found' });
+            }
+            if (error && (error as any).message == 'Only pending orders can be completed.') {
+                return res.status(400).json({ message: 'Only pending orders can be completed' });
+            }
+            logger.error({ err: error }, 'Error in completeOrder controller');
+            next(error);
+        }
+    }
 }
