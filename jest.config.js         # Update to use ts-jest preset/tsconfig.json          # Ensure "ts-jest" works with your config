@@ -1,0 +1,21 @@
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+};
+
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+
+test('hello world!', () => {
+  expect('Hello, World!').toBe('Hello, World!');
+});

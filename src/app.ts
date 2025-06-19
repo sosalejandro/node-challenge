@@ -1,0 +1,20 @@
+import express from 'express';
+import userRoutes from './application/user-routes';
+import productRoutes from './application/product-routes';
+import orderRoutes from './application/order-routes'
+
+const app = express();
+
+app.use(express.json());
+
+// Register user routes
+app.use('/users', userRoutes);
+app.use('/products', productRoutes)
+app.use('/orders', orderRoutes)
+
+// Example route
+app.get('/', (_req, res) => {
+  res.send('Hello, Express + TypeScript!');
+});
+
+export default app;
